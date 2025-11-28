@@ -64,22 +64,25 @@ function App() {
     setIsOpenEditModal(true);
   }, []);
 
-  function changeHandler(e: ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-    setProduct({
-      ...product,
-      [name]: value,
-    });
-    setErrors({ ...errors, [name]: "" });
-  }
-  function onChangeEditHandler(e: ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-    setProductToEdit({
-      ...productToEdit,
-      [name]: value,
-    });
-    setErrors({ ...errors, [name]: "" });
-  }
+
+  const changeHandler = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setProduct((prev) => ({ ...prev, [name]: value }));
+
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    },
+    []
+  );
+  const onChangeEditHandler = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const { name, value } = e.target;
+      setProductToEdit((prev) => ({ ...prev, [name]: value }));
+
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    },
+    []
+  );
 
   function submitEditHandler(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
