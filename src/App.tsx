@@ -280,7 +280,7 @@ function App() {
             </Button>
             <Button
               type="button"
-              className="bg-[#f5f5fa] hover:bg-gray-300 !text-black"
+              className="bg-gray-400 hover:bg-gray-500 !text-white"
               onClick={cancelHandler}
             >
               Cancel
@@ -333,7 +333,7 @@ function App() {
             </Button>
             <Button
               type="button"
-              className="bg-[#f5f5fa] hover:bg-gray-300 !text-black"
+              className="bg-gray-400 hover:bg-gray-500 !text-black"
               onClick={cancelEditHandler}
             >
               Cancel
